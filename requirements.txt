@@ -1,0 +1,17 @@
+# [2026-07-05] MCP 支持需要较新的 fastapi/pydantic/starlette，对齐已验证的版本。
+fastapi==0.137.1
+uvicorn[standard]==0.34.0
+pydantic==2.13.4
+httpx==0.28.1
+python-dotenv==1.0.0
+curl_cffi>=0.7.0
+beautifulsoup4>=4.12.0
+markdownify>=0.11.0
+# AI 客户端接入（MCP，可选：仅 ENABLE_MCP=1 时需要）
+mcp==1.27.2
+# 文章导出（多格式）：md/html/xlsx/json 用不到额外依赖；PDF/Word/EPUB 需以下库
+Pillow>=10.0.0
+xhtml2pdf>=0.2.16
+python-docx>=1.1.0
+openpyxl>=3.1.0
+EbookLib>=0.18

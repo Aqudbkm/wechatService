@@ -1,0 +1,108 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+.claude/
+.vibe/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+test_qr.png
+*.log
+
+# QR codes (generated dynamically)
+static/qrcodes/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Example output files
+articles*.json
+fetch_progress.json
+
+# Logs
+logs/
+
+# RSS database
+data/
+
+# SaaS 版本（独立仓库管理）
+saas/
+
+# 个人文档和脚本（不提交）
+docs/
+scripts/
+
+# 本地诊断 / 临时调试脚本（含生产凭证, 不提交）
+diagnose_*.py
+check_*.py
+verify_*.py
+inspect_*.py
+reset_*.py
+recheck_*.py
+reclassify_*.py
+fix_data_*.py
+.tmp_*.html
+
+# 历史 audit / changelog / 行动计划等私有 MD（不提交开源仓库）
+AUDIT_REPORT_*.md
+ACTION_PLAN_*.md
+ACCESS_SINCE_*.md
+CHANGELOG_*.md
+HISTORICAL_*.md
+OPENSOURCE_AUDIT_*.md
+VERIFY_*.md
+
+# 个人产品/架构策略与设计讨论 MD（私有思考材料，绝不提交开源仓库）
+MATRIX_*.md
+PRODUCT_*.md
+ADAPTIVE_*.md
+INFRA_*.md
+POLLER_*.md
+WECHATRSS_*.md
+*_ROADMAP_*.md
+*_BLUEPRINT.md
+*_STRATEGY_*.md
+*_DISCUSSION_*.md
+*_DESIGN_*.md
+*_PILOT_*.md
