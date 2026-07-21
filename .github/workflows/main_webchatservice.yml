@@ -76,7 +76,6 @@
 
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Python app to Azure Web App - webchatService
 
 on:
@@ -116,21 +115,21 @@ jobs:
             !antenv/
             !.git/
 
-deploy:
-  runs-on: ubuntu-latest
-  needs: build
-  steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v4
-      with:
-        name: python-app
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v3
-      with:
-        app-name: 'webchatService'
-        slot-name: 'Production'
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: .
-        startup-command: 'gunicorn --bind=0.0.0.0:8000 app:app'
-          
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: python-app
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'webchatService'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
+          startup-command: 'gunicorn --bind=0.0.0.0:8000 app:app'
