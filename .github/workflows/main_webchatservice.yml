@@ -132,4 +132,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
-          startup-command: 'gunicorn --bind=0.0.0.0:8000 app:app'
