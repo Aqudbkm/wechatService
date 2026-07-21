@@ -116,31 +116,21 @@ jobs:
             !antenv/
             !.git/
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      id-token: write
-      contents: read
+deploy:
+  runs-on: ubuntu-latest
+  needs: build
+  steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v4
+      with:
+        name: python-app
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: python-app
-
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_26FB82CC6F1E46989F1C23EAA0C7C5978 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_66C8D4707C5144B1B86D0CC4A8F90B7C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F27C929539FEA4A81BFD2F6A067308B1A }}
-
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'webchatService'
-          slot-name: 'Production'
-          package: .
-          startup-command: 'gunicorn --bind=0.0.0.0:8000 app:app'
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: 'webchatService'
+        slot-name: 'Production'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: .
+        startup-command: 'gunicorn --bind=0.0.0.0:8000 app:app'
           
